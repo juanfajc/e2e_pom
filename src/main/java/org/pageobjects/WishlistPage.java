@@ -9,6 +9,7 @@ public class WishlistPage {
     private WebDriver driver;
 
     private By lblWishlistBy = By.xpath("//p[text()='Your wish list is empty.']");
+    private By continueBtnBy = By.xpath("//a[text()='Continue']");
 
     public WishlistPage(WebDriver driver) {
         this.driver = driver;
@@ -17,5 +18,9 @@ public class WishlistPage {
 
     public WebElement getLblWishlist () {
         return driver.findElement(lblWishlistBy);
+    }
+
+    public WebElement getContinueBtn() {
+        return driver.findElement(continueBtnBy);
     }
 }

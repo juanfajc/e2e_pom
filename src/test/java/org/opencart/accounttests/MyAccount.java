@@ -42,92 +42,100 @@ public class MyAccount extends Base {
 
     @Test (dependsOnMethods = "testLogin")
     public void testAccountElements(){
-        //3. A message "Your Store" must be displayed at the top of the page.
+        //1. A message "Your Store" must be displayed at the top of the page.
         Assert.assertEquals(true, myAccountPage.getLblYourStore().isDisplayed());
-        //3. A left menu must be displayed with the following items:
-        //      Edit your account information
+        //1. A left menu must be displayed with the following items:
+        //Edit your account information
         Assert.assertEquals(true, myAccountPage.getLinkEditAccount().isDisplayed());
-        //      Change your password
+        //Change your password
         Assert.assertEquals(true, myAccountPage.getLinkChangePassword().isDisplayed());
-        //      Modify your address book entries
+        //Modify your address book entries
         Assert.assertEquals(true, myAccountPage.getLinkModifyAddressBook().isDisplayed());
-        //      Modify your wish list
+        //Modify your wish list
         Assert.assertEquals(true, myAccountPage.getLinkModifyWishList().isDisplayed());
     }
 
     @Test (dependsOnMethods = "testLogin")
     public void testEmptyWishList(){
-        //4. Click on Wishlist
+        //1. Click on Wishlist
         myAccountPage.getLinkModifyWishList().click();
-        //4. A message:  "Your wish list is empty." is displayed
+        //1. A message:  "Your wish list is empty." is displayed
         Assert.assertEquals(true, wishlistPage.getLblWishlist().isDisplayed());
+        //return to the my account page
+        wishlistPage.getContinueBtn().click();
     }
 
     @Test (dependsOnMethods = "testLogin", dataProvider = "edit valid info", dataProviderClass = SignUpDataProvider.class)
     public void testEditSuccessMessage(String firstname, String lastName, String phone){
-        //4. Click on "Edit your account information"
+        //1. Click on "Edit your account information"
         myAccountPage.getLinkEditAccount().click();
-        //5. Edit any field with valid data
+        //2. Edit any field with valid data
         editAccountInfoFormPage.getInputFirstName().clear();
         editAccountInfoFormPage.getInputFirstName().sendKeys(firstname);
         editAccountInfoFormPage.getInputLastName().clear();
         editAccountInfoFormPage.getInputLastName().sendKeys(lastName);
         editAccountInfoFormPage.getInputPhone().clear();
         editAccountInfoFormPage.getInputPhone().sendKeys(phone);
-        //6. Click on continue
+        //3. Click on continue
         editAccountInfoFormPage.getContinueBtn().click();
-        //6. Redirects to "My Account"
+        //3. Redirects to "My Account"
         Assert.assertEquals(true, myAccountPage.getLblYourStore().isDisplayed());
         Assert.assertEquals(true, myAccountPage.getLinkEditAccount().isDisplayed());
-        //6. Message text: "Success: Your account has been successfully updated." is displayed
+        //3. Message text: "Success: Your account has been successfully updated." is displayed
         Assert.assertEquals(true, myAccountPage.getSuccessEditMessage().isDisplayed());
     }
 
     @Test (dependsOnMethods = "testLogin", dataProvider = "missing at email info edit", dataProviderClass = SignUpDataProvider.class)
     public void testEditMissingAtEmailMessage(String email){
-        //4. Click on Edit
+        //1. Click on Edit
         myAccountPage.getLinkEditAccount().click();
-        //5. Edit email with invalid data
+        //2. Edit email with invalid data
         editAccountInfoFormPage.getInputEmail().clear();
         editAccountInfoFormPage.getInputEmail().sendKeys(email);
-        //6. Click on continue
+        //3. Click on continue
         editAccountInfoFormPage.getContinueBtn().click();
-        //6. Message displayed: Please include @ in the email address.
+        //3. Message displayed: Please include @ in the email address.
         Assert.assertEquals(true, !editAccountInfoFormPage.getInputEmail().getAttribute("validationMessage").isEmpty());
+        //return to the my account page
+        editAccountInfoFormPage.getBackBtn().click();
     }
 
     @Test (dependsOnMethods = "testLogin", dataProvider = "missing dot com info edit", dataProviderClass = SignUpDataProvider.class)
-    public void testEditMissingDotComEmailMessage(String email){
-        //4. Click on Edit
+    public void testEditMissingDotComEmailMessage(String email)  {
+        //1. Click on Edit
         myAccountPage.getLinkEditAccount().click();
-        //5. Edit email with invalid data
+        //2. Edit email with invalid data
         editAccountInfoFormPage.getInputEmail().clear();
         editAccountInfoFormPage.getInputEmail().sendKeys(email);
-        //6. Click on continue
+        //3. Click on continue
         editAccountInfoFormPage.getContinueBtn().click();
-        //6. Message displayed: Please include @ in the email address.
+        //3. Message displayed: Please include @ in the email address.
         Assert.assertEquals(true, editAccountInfoFormPage.getLblWrongEmailBy().isDisplayed());
+        //return to the my account page
+        editAccountInfoFormPage.getBackBtn().click();
     }
 
     @Test (dependsOnMethods = "testLogin")
     public void testEmptyOrderHistory(){
-        //4. Click on "Order History"
+        //1. Click on "Order History"
         myAccountPage.getLinkOrderHistory().click();
-        //4. A message: "You have not made any previous orders!" is displayed
+        //2. A message: "You have not made any previous orders!" is displayed
         Assert.assertEquals(true, orderHistoryPage.getLblEmptyOrder().isDisplayed());
+        //return to the my account page
+        orderHistoryPage.getContinueBtn().click();
     }
 
     @Test (dependsOnMethods = "testLogin")
     public void testNewsletterSubscription() {
-        //4. Click on "Newsletter"
+        //1. Click on "Newsletter"
         myAccountPage.getLinkNewsLetterBy().click();
-        //5. Toggle newsletter subscription
+        //2. Toggle newsletter subscription
         newsletterPage.changeNewsletter();
         newsletterPage.getContinueBtn().click();
-        //5. Redirects to "My Account"
+        //2. Redirects to "My Account"
         Assert.assertEquals(true, myAccountPage.getLblYourStore().isDisplayed());
         Assert.assertEquals(true, myAccountPage.getLinkEditAccount().isDisplayed());
-        //5. message" Success: Your newsletter subscription has been successfully updated!" is displayed
+        //2. message" Success: Your newsletter subscription has been successfully updated!" is displayed
         Assert.assertEquals(true, myAccountPage.getSuccessNewsletterMessage().isDisplayed());
     }
 

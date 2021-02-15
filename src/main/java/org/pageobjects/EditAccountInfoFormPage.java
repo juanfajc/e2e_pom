@@ -9,6 +9,7 @@ public class EditAccountInfoFormPage {
         private WebDriver driver;
 
         private By continueBtnBy = By.xpath("//input[@value='Continue']");
+        private By backBtnBy = By.xpath("//a[text()='Back']");
         private By inputFirstNameBy = By.id("input-firstname");
         private By inputLastNameBy = By.id("input-lastname");
         private By inputEmailBy = By.id("input-email");
@@ -22,6 +23,10 @@ public class EditAccountInfoFormPage {
 
         public WebElement getContinueBtn() {
             return driver.findElement(continueBtnBy);
+        }
+
+        public WebElement getBackBtn(){
+            return driver.findElement(backBtnBy);
         }
 
         public WebElement getInputFirstName() {
