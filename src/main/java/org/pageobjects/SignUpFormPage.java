@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignUpPage {
+public class SignUpFormPage {
     private WebDriver driver;
 
     private By privacyCheckBoxBy = By.xpath("//input[@type='checkbox' and @name='agree']");
@@ -16,14 +16,16 @@ public class SignUpPage {
     private By inputPhoneBy = By.id("input-telephone");
     private By inputPasswordBy = By.id("input-password");
     private By inputPasswordConfirmBy = By.id("input-confirm");
+    private By lblAnyErrorBy = By.className("text-danger");
+    private By lblWrongEmailBy = By.xpath("//div[@class='text-danger' and contains(. ,'E-Mail Address does not appear to be valid')]");
+    private By lblMismatchPasswordErrorBy = By.xpath("//div[@class='text-danger' and contains(. ,'Password confirmation does not match password!')]");
 
-    public SignUpPage(WebDriver driver) {
+    public SignUpFormPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public WebElement getPrivacyCheckBox() {
-
         return driver.findElement(privacyCheckBoxBy);
     }
 
@@ -36,22 +38,18 @@ public class SignUpPage {
     }
 
     public WebElement getInputLastName() {
-
         return driver.findElement(inputLastNameBy);
     }
 
     public WebElement getInputEmail() {
-
         return driver.findElement(inputEmailBy);
     }
 
     public WebElement getInputPhone() {
-
         return driver.findElement(inputPhoneBy);
     }
 
     public WebElement getInputPassword() {
-
         return driver.findElement(inputPasswordBy);
     }
 
@@ -59,4 +57,15 @@ public class SignUpPage {
         return driver.findElement(inputPasswordConfirmBy);
     }
 
+    public WebElement getLblAnyError(){
+        return driver.findElement(lblAnyErrorBy);
+    }
+
+    public WebElement getLblEmailError(){
+        return driver.findElement(lblWrongEmailBy);
+    }
+
+    public WebElement getLblMismatchPasswordError(){
+        return driver.findElement(lblMismatchPasswordErrorBy);
+    }
 }

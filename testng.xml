@@ -3,12 +3,12 @@
 <suite name="Test Suite">
     <test name="Test Sign Up">
         <classes>
-            <class name="org.opencart.SignUp"/>
+            <class name="org.opencart.accounttests.SignUp"/>
         </classes>
     </test>
     <test name="Test My Account">
         <classes>
-            <class name="org.opencart.MyAccount"/>
+            <class name="org.opencart.accounttests.MyAccount"/>
         </classes>
     </test>
 </suite>

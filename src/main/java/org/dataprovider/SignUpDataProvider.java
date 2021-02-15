@@ -51,4 +51,27 @@ public class SignUpDataProvider {
                 {"alberto", "caceres", StringFunctions.randomEmail(n), "111111", "password444", "password"}
         };
     }
+
+    @DataProvider(name = "edit valid info")
+    public Object[][] editValidInfo() {
+        return new Object[][]{
+                {"carlos", "vargas", "123456"},
+                {"jorge", "cueva", "654321"},
+                {"alberto", "caceres", "111111"}
+        };
+    }
+
+    @DataProvider(name = "missing at email info edit")
+    public Object[][] editEmailMissingAt() {
+        return new Object[][]{
+                {"test.com"}
+        };
+    }
+
+    @DataProvider(name = "missing dot com info edit")
+    public Object[][] editEmailMissingDotCom() {
+        return new Object[][]{
+                {"test@gmailcom"}
+        };
+    }
 }
