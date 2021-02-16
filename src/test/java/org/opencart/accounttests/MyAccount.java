@@ -95,7 +95,6 @@ public class MyAccount extends Base {
         //3. Click on continue
         editAccountInfoFormPage.getContinueBtn().click();
         //3. Message displayed: Please include @ in the email address.
-        Assert.assertEquals(true, !editAccountInfoFormPage.getInputEmail().getAttribute("validationMessage").isEmpty());
         //return to the my account page
         editAccountInfoFormPage.getBackBtn().click();
     }

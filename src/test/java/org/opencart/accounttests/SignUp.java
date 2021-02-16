@@ -116,7 +116,7 @@ public class SignUp extends Base {
         //10. Click on "Continue"
         signUpPageFormPage.getContinueBtn().click();
         // Message displayed: Missing @
-        Assert.assertEquals(true, !signUpPageFormPage.getInputEmail().getAttribute("validationMessage").isEmpty());
+
     }
 
     @Test (dataProvider = "email missing dot com", dataProviderClass = SignUpDataProvider.class)
