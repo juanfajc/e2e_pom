@@ -30,7 +30,6 @@ public class EditAccountInfoFormPage {
     @FindBy(xpath = EditAccountInfoFormConstants.LBL_ERROR_WRONG_EMAIL)
     private WebElement lblErrorWrongEmail;
 
-
     public EditAccountInfoFormPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

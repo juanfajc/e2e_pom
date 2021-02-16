@@ -36,7 +36,6 @@ public class MyAccountPage {
     @FindBy(xpath = MyAccountConstants.LBL_SUCCESS_NEWSLETTER)
     private WebElement lblSuccessNewsLetter;
 
-
     public MyAccountPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
