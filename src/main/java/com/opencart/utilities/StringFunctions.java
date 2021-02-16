@@ -1,4 +1,4 @@
-package org.opencart.utilities;
+package com.opencart.utilities;
 
 public class StringFunctions {
     // function to generate a random string of length n

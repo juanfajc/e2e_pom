@@ -1,14 +1,16 @@
-package org.pageobjects;
+package com.pageobjects;
 
-import org.openqa.selenium.By;
+import com.pageconstants.SignUpSuccessConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SignUpSuccessPage {
     private WebDriver driver;
 
-    private By lblSuccessBy = By.xpath("//h1[contains(., 'Your Account Has Been Created')]");
+    @FindBy(xpath = SignUpSuccessConstants.LBL_SUCCESS)
+    private WebElement lblSuccess;
 
     public SignUpSuccessPage(WebDriver driver) {
         this.driver = driver;
@@ -16,6 +18,6 @@ public class SignUpSuccessPage {
     }
 
     public WebElement getLblSuccess() {
-        return driver.findElement(lblSuccessBy);
+        return lblSuccess;
     }
 }

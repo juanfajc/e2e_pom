@@ -1,6 +1,6 @@
-package org.dataprovider;
+package com.dataprovider;
 
-import org.opencart.utilities.StringFunctions;
+import com.opencart.utilities.StringFunctions;
 import org.testng.annotations.DataProvider;
 
 public class SignUpDataProvider {

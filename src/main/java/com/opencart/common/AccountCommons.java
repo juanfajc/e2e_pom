@@ -1,8 +1,8 @@
-package org.opencart.common;
+package com.opencart.common;
 
+import com.pageobjects.LoginFormPage;
+import com.pageobjects.MainPage;
 import org.openqa.selenium.WebDriver;
-import org.pageobjects.LoginFormPage;
-import org.pageobjects.MainPage;
 
 public class AccountCommons {
     private MainPage mainPage;
@@ -19,8 +19,8 @@ public class AccountCommons {
         //go to the main page
         driver.get(mainPage.getURL());
         //click on login
-        mainPage.getMyAccount().click();
-        mainPage.getLogin().click();
+        mainPage.getBtnMyAccount().click();
+        mainPage.getBtnLogin().click();
         //we fill the user name and pwd
         loginFormPage.getInputUsername().sendKeys(username);
         loginFormPage.getInputPassword().sendKeys(password);
