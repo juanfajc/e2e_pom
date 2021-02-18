@@ -8,5 +8,4 @@ public class MainConstants {
     public static final String BTN_MY_ACCOUNT = "//a[@title = 'My Account']";
     public static final String BTN_REGISTER = "//a[contains(., 'Register')]";
     public static final String BTN_LOGIN = "//a[contains(., 'Login')]";
-
 }
